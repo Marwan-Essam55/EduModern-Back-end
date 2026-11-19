@@ -24,7 +24,7 @@ ASP.NET Core Identity manages accounts and passwords. Login issues a three-hour 
 | Instructor or Admin | Submit lesson resource records through `POST /api/Resources/Upload`. |
 | Admin | List users through `GET /api/Admin/Users`, register instructors through `POST /api/Admin/RegisterInstructor`, and add staff through `POST /api/Auth/AddStaff`. |
 
-`RegisterInstructor` assigns the Identity `Instructor` role but leaves the separate `User.Role` field at its default (`Admin`). The admin user list reads Identity roles. `AddStaff` sets the enum used by login (`0` Admin, `1` Instructor, `2` Student). See the [use-case diagram](docs/images/use-cases.png) for the main API flows.
+`RegisterInstructor` assigns the Identity `Instructor` role but leaves the separate `User.Role` field at its default (`Admin`). The admin user list reads Identity roles. `AddStaff` sets the enum used by login (`0` Admin, `1` Instructor, `2` Student). See [Use cases](#use-cases) for the main API flows.
 
 ## Architecture
 
@@ -40,6 +40,10 @@ ASP.NET Core Identity manages accounts and passwords. Login issues a three-hour 
 Courses belong to instructors and contain ordered lessons. Enrollment and lesson-progress records connect users to courses and lessons. Lesson resources store attachment metadata and a URL. The diagram shows the core domain tables.
 
 ![EduModern ERD showing users, courses, lessons, enrollments, lesson progress, and resources](docs/images/erd.png)
+
+## Use cases
+
+![EduModern use-case diagram showing public, student, instructor, and admin interactions with the API](docs/images/use-cases.png)
 
 ## Run locally
 
